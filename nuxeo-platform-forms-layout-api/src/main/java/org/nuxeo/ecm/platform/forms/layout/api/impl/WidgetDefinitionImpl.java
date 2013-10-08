@@ -77,6 +77,16 @@ public class WidgetDefinitionImpl implements WidgetDefinition {
 
     protected Map<String, List<RenderingInfo>> renderingInfos;
 
+    /**
+     * @since 5.9.1
+     */
+    protected boolean dynamic = false;
+
+    /**
+     * @since 5.9.1
+     */
+    protected boolean global = false;
+
     // needed by GWT serialization
     protected WidgetDefinitionImpl() {
         super();
@@ -443,8 +453,23 @@ public class WidgetDefinitionImpl implements WidgetDefinition {
         return getRenderingInfos(renderingInfos, mode);
     }
 
+    public boolean isDynamic() {
+        return dynamic;
+    }
+
+    public void setDynamic(boolean dynamic) {
+        this.dynamic = dynamic;
+    }
+
+    public boolean isGlobal() {
+        return global;
+    }
+
+    public void setGlobal(boolean global) {
+        this.global = global;
+    }
+
     @Override
-    @SuppressWarnings("deprecation")
     public WidgetDefinition clone() {
         Map<String, Map<String, Serializable>> cprops = null;
         if (properties != null) {
@@ -543,13 +568,15 @@ public class WidgetDefinitionImpl implements WidgetDefinition {
                 crenderingInfos.put(item.getKey(), clonedInfos);
             }
         }
-        WidgetDefinition clone = new WidgetDefinitionImpl(name, type, clabels,
-                chelpLabels, translated, cmodes, cfieldDefinitions, cprops,
-                cwidgetProps, csubWidgets, cselectOptions);
+        WidgetDefinitionImpl clone = new WidgetDefinitionImpl(name, type,
+                clabels, chelpLabels, translated, cmodes, cfieldDefinitions,
+                cprops, cwidgetProps, csubWidgets, cselectOptions);
         clone.setRenderingInfos(crenderingInfos);
         clone.setSubWidgetReferences(csubWidgetRefs);
         clone.setHandlingLabels(handlingLabels);
         clone.setControls(ccontrols);
+        clone.setDynamic(dynamic);
+        clone.setGlobal(dynamic);
         return clone;
     }
 

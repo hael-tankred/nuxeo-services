@@ -55,6 +55,8 @@ public class LayoutDefinitionImpl implements LayoutDefinition {
 
     protected Integer columns;
 
+    protected boolean dynamic = false;
+
     // needed by GWT serialization
     protected LayoutDefinitionImpl() {
         super();
@@ -260,6 +262,7 @@ public class LayoutDefinitionImpl implements LayoutDefinition {
         LayoutDefinition clone = new LayoutDefinitionImpl(name, cprops,
                 ctemplates, crows, cwidgets);
         clone.setRenderingInfos(crenderingInfos);
+        clone.setDynamic(dynamic);
         return clone;
     }
 
@@ -279,6 +282,14 @@ public class LayoutDefinitionImpl implements LayoutDefinition {
             }
         }
         return true;
+    }
+
+    public boolean isDynamic() {
+        return dynamic;
+    }
+
+    public void setDynamic(boolean dynamic) {
+        this.dynamic = dynamic;
     }
 
 }

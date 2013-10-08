@@ -212,4 +212,19 @@ public interface Widget extends Serializable {
      */
     List<RenderingInfo> getRenderingInfos();
 
+    /**
+     * @since 5.9.1
+     */
+    boolean isGlobal();
+
+    /**
+     * @since 5.9.1
+     */
+    boolean isDynamic();
+
+    /**
+     * @since 5.9.1
+     */
+    WidgetDefinition getDefinition();
+
 }

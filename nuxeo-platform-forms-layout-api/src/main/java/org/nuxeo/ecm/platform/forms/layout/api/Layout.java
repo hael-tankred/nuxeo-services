@@ -150,4 +150,14 @@ public interface Layout extends Serializable {
      */
     void setValueName(String valueName);
 
+    /**
+     * @since 5.9.1
+     */
+    boolean isDynamic();
+
+    /**
+     * @since 5.9.1
+     */
+    LayoutDefinition getDefinition();
+
 }

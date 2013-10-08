@@ -295,6 +295,26 @@ public interface WidgetDefinition extends Serializable {
     void setRenderingInfos(Map<String, List<RenderingInfo>> renderingInfos);
 
     /**
+     * @since 5.9.1
+     */
+    boolean isGlobal();
+
+    /**
+     * @since 5.9.1
+     */
+    boolean isDynamic();
+
+    /**
+     * @since 5.9.1
+     */
+    void setDynamic(boolean dynamic);
+
+    /**
+     * @since 5.9.1
+     */
+    void setGlobal(boolean global);
+
+    /**
      * Returns a clone instance of this widget definition.
      * <p>
      * Useful for conversion of widget definition during export.

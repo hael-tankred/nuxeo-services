@@ -134,4 +134,14 @@ public interface LayoutDefinition extends Serializable {
      */
     boolean isEmpty();
 
+    /**
+     * @since 5.9.1
+     */
+    boolean isDynamic();
+
+    /**
+     * @since 5.9.1
+     */
+    void setDynamic(boolean dynamic);
+
 }

@@ -26,6 +26,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.nuxeo.ecm.platform.forms.layout.api.Layout;
+import org.nuxeo.ecm.platform.forms.layout.api.LayoutDefinition;
 import org.nuxeo.ecm.platform.forms.layout.api.LayoutRow;
 import org.nuxeo.ecm.platform.forms.layout.api.Widget;
 
@@ -57,6 +58,10 @@ public class LayoutImpl implements Layout {
     protected String definitionId;
 
     protected String valueName;
+
+    protected boolean dynamic = false;
+
+    protected LayoutDefinition definition;
 
     // needed by GWT serialization
     protected LayoutImpl() {
@@ -229,6 +234,22 @@ public class LayoutImpl implements Layout {
                 }
             }
         }
+    }
+
+    public boolean isDynamic() {
+        return dynamic;
+    }
+
+    public void setDynamic(boolean dynamic) {
+        this.dynamic = dynamic;
+    }
+
+    public LayoutDefinition getDefinition() {
+        return definition;
+    }
+
+    public void setDefinition(LayoutDefinition definition) {
+        this.definition = definition;
     }
 
 }
